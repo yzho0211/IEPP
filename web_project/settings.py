@@ -119,12 +119,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# settings.py
+
+STATIC_URL = 'https://cs110032001a9b0096d.blob.core.windows.net/stastic/'
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+AZURE_ACCOUNT_NAME = 'cs110032001a9b0096d'
+AZURE_ACCOUNT_KEY = 'Pw6Z2VdIZqmE+tFtN7KTNqXdEvSLYglU/lKeKDk58EF/q1dbkIckKBdRDz/TUh9lMrSb36kMeW0z+AStHhxgIQ=='
+AZURE_CONTAINER = 'stastic'
+
+
+# STATIC_URL = 'static/'
 
 # Add the following lines if they're not already present
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
