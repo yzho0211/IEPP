@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sunsavvy - Protecting Victorian  Homes from the Sun</title>
+    <title>Sunsavvy - Protecting Victorian Homes from the Sun</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -15,8 +15,10 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+        rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -36,7 +38,8 @@
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -51,11 +54,11 @@
                     <img src="{% static 'img/Group-2.png' %}" alt="Your Logo" width="100" height="75">
                 </a>
             </div>
-          <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-          <a href="{% url 'cloth_style' %}" class="nav-item nav-link active">Style Safety</a>
-          <a href="{% url 'sunscreen_safety' %}" class="nav-item nav-link">Sunscreen Safety</a>
-          <a href="{% url 'uv_impact' %}" class="nav-item nav-link">UV Impact</a>
-      </nav>
+            <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+            <a href="{% url 'cloth_style' %}" class="nav-item nav-link active">Style Safety</a>
+            <a href="{% url 'sunscreen_safety' %}" class="nav-item nav-link">Sunscreen Safety</a>
+            <a href="{% url 'uv_impact' %}" class="nav-item nav-link">UV Impact</a>
+        </nav>
         <!-- Navbar End -->
 
 
@@ -66,9 +69,10 @@
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
                         <li>
-                            <h2 class="display-4 text-white animated slideInDown mb-4"> Dress for the Day with UV Smart Wardrobe Recommendation </h2>
+                            <h2 class="display-4 text-white animated slideInDown mb-4"> Dress for the Day with UV Smart
+                                Wardrobe Recommendation </h2>
                         </li>
-                        
+
                     </ol>
                 </nav>
             </div>
@@ -83,13 +87,17 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="mb-4">What to wear today?</h1>
                         <p><strong>Low UV index (0-2): </strong> Light and breathable clothing.</p>
-                        <p class="mb-4"> <strong>Medium-High UV index (2-7): </strong> Sunscreen, long sleeved shirts, wide-brimmed hats, sunglasses. Seek shade when possible.</p>
-                        <p class="mb-4"> <strong>Very High UV index (8-11): </strong> Sunscreen, maximized skin coverage with UV resistant clothing, wide-brimmed hats, sunglasses. Avoid outdoors or seek shade as much as possible.</p>
+                        <p class="mb-4"> <strong>Medium-High UV index (2-7): </strong> Sunscreen, long sleeved shirts,
+                            wide-brimmed hats, sunglasses. Seek shade when possible.</p>
+                        <p class="mb-4"> <strong>Very High UV index (8-11): </strong> Sunscreen, maximized skin coverage
+                            with UV resistant clothing, wide-brimmed hats, sunglasses. Avoid outdoors or seek shade as
+                            much as possible.</p>
                     </div>
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <img class="img-fluid w-70  bg-light p-3" align= "right" src="{% static 'img/uv-index.png' %}" alt="">
+                                <img class="img-fluid w-70  bg-light p-3" align="right"
+                                    src="{% static 'img/uv-index.png' %}" alt="">
                             </div>
                         </div>
                     </div>
