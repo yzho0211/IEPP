@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-stft$*apqs)61nwrj!)v#wswbf=ue6v#_&y6!cf2ci1ljcz20(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['sunsavvvy.azurewebsites.net']
+#ALLOWED_HOSTS = ['sunsavvvy.azurewebsites.net']
 
 #GDAL_LIBRARY_PATH = '/opt/homebrew/opt/gdal/lib/libgdal.dylib'
 #GEOS_LIBRARY_PATH = '/opt/homebrew/opt/geos/lib/libgeos_c.dylib'
