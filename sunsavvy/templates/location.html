@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<div id="popup-container">
+    <div id="popup">
+        <h1 align= 'center'>Welcome to Sunsavvy</h1>
+        <p align= 'center'>Please grant permission to access your location.</p>
+        <div class="button-container">
+            <button id= "popup-button" onclick="getLocation()">Get Location</button>
+        </div class="button-container">
+        <form id="location-form" method="post" action="/">
+            {% csrf_token %}
+            <input type="hidden" id="latitude" name="latitude" value="">
+            <input type="hidden" id="longitude" name="longitude" value="">
+        </form>
+
+        <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }
+
+            function showPosition(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Set latitude and longitude values in hidden form fields
+                document.getElementById("latitude").value = latitude;
+                document.getElementById("longitude").value = longitude;
+
+                // Submit the form
+                document.getElementById("location-form").submit();
+            }
+        </script>
+    </div>
+</div>
+
+
+{% comment %} <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to Our Website</h1>
+    <p>Grant permission to access your location.</p>
+    <button onclick="getLocation()">Get Location</button>
+
+    <form id="location-form" method="post" action="/home/">
+        {% csrf_token %}
+        <input type="hidden" id="latitude" name="latitude" value="">
+        <input type="hidden" id="longitude" name="longitude" value="">
+    </form>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Set latitude and longitude values in hidden form fields
+            document.getElementById("latitude").value = latitude;
+            document.getElementById("longitude").value = longitude;
+
+            // Submit the form
+            document.getElementById("location-form").submit();
+        }
+    </script>
+</body>
+</html> {% endcomment %}
