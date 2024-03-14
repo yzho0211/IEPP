@@ -86,8 +86,8 @@ def plot(lat, long):
     return image_png
     
 
-from .password_required import password_required
-@password_required(password="IE")
+#from .password_required import password_required
+#@password_required(password="IE")
 def home(request):
     if request.method == 'POST':
         # Retrieve latitude and longitude from POST request
