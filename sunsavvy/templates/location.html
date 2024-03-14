@@ -1,42 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
 
 <div id="popup-container">
     <div id="popup">
-        <h1 align= 'center'>Welcome to Sunsavvy</h1>
-        <p align= 'center'>Please grant permission to access your location.</p>
+        <h1 align='center'>Welcome to Sunsavvy</h1>
+        <p align='center'>Please grant permission to access your location.</p>
         <div class="button-container">
-            <button id= "popup-button" onclick="getLocation()">Get Location</button>
-        </div class="button-container">
-        <form id="location-form" method="post" action="/">
+            <button id="popup-button">Get Location</button>
+        </div>
+        <form id="location-form" method="POST" action="/">
             {% csrf_token %}
             <input type="hidden" id="latitude" name="latitude" value="">
             <input type="hidden" id="longitude" name="longitude" value="">
         </form>
-
-        <script>
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    alert("Geolocation is not supported by this browser.");
-                }
-            }
-
-            function showPosition(position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                // Set latitude and longitude values in hidden form fields
-                document.getElementById("latitude").value = latitude;
-                document.getElementById("longitude").value = longitude;
-                sessionStorage.setItem('Latitude', latitude);
-                sessionStorage.setItem('Longitude', longitude);
-
-                // Submit the form
-                document.getElementById("location-form").submit();
-            }
-        </script>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#popup-button').click(function() {
+            getLocation();
+        });
+    });
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        // Set latitude and longitude values in hidden form fields
+        $('#latitude').val(latitude);
+        $('#longitude').val(longitude);
+
+        // Include CSRF token in AJAX requests
+        var csrftoken = getCookie('csrftoken');
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            data: $('#location-form').serialize(),
+            success: function(response) {
+                console.log($('#latitude'))
+                document.getElementById("latitude").value = latitude;
+                document.getElementById("longitude").value = longitude;
+                sessionStorage.setItem('latitude', latitude);
+                sessionStorage.setItem('longitude', longitude);
+                document.getElementById("location-form").submit();
+                // Handle success response
+            },
+            error: function(xhr, errmsg, err) {
+                console.log(errmsg + ":" + err);
+                // Handle error
+            }
+        });
+    }
+
+    // Function to get a cookie
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+
+</body>
+</html>

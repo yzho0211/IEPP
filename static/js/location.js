@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', function() {
     var popupContainer = document.getElementById('popup-container');
     var popupButton = document.getElementById('popup-button');
@@ -17,6 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close the popup when the popup button is clicked
     popupButton.addEventListener('click', function() {
         popupContainer.style.display = 'none';
+    });
+
+    // Include CSRF token in AJAX requests
+    var csrftoken = getCookie('csrftoken');
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                // Only send the token to relative URLs i.e. locally.
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
     });
 });
 
@@ -44,5 +53,6 @@ function getCookie(name) {
             return c.substring(nameEQ.length, c.length);
         }
     }
+
     return null;
 }

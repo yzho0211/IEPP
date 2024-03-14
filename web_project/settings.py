@@ -24,14 +24,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-stft$*apqs)61nwrj!)v#wswbf=ue6v#_&y6!cf2ci1ljcz20('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sunsavvvy.azurewebsites.net','20.36.106.99','127.0.0.1']
-#ALLOWED_HOSTS = ['127.0.0.1','20.36.106.99','sunsavvvy.azurewebsites.net']
+ALLOWED_HOSTS = ['127.0.0.1']
+
 # GDAL_LIBRARY_PATH = '/opt/homebrew/opt/gdal/lib/libgdal.dylib'
 # GEOS_LIBRARY_PATH = '/opt/homebrew/opt/geos/lib/libgeos_c.dylib'
 
 # Application definition
+
+AUTHENTICATION_BACKENDS = ['sunsavvy.backends.DefaultPasswordBackend']
+
+LOGIN_URL = ''
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,7 +55,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'sunsavvy.middleware.PasswordProtectionMiddleware'
 ]
+
+# PASSWORD = 'Team22@IE'
 
 ROOT_URLCONF = 'web_project.urls'
 
@@ -121,15 +128,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-
+# Add the following lines if they're not already present
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
-print(STATICFILES_DIRS)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
