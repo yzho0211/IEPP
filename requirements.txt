@@ -2,3 +2,6 @@ django
 requests
 matplotlib
 gunicorn
+django-storages==1.13.2
+azure-core==1.26.3
+azure-storage-blob==12.14.1
