@@ -33,6 +33,8 @@
 
     <!-- Pop-up Stylesheet-->
     <link rel="stylesheet" href="{% static 'css/location.css' %}">
+    <link rel="stylesheet" href="{% static 'css/placecard.css' %}">
+
 
 </head>
 
@@ -60,7 +62,7 @@
           </div>
           <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
           {% comment %} <a href="{% url 'cloth_style' %}" class="nav-item nav-link active">Style Safety</a> {% endcomment %}
-          <a href="{% url 'sunscreen_safety' %}" class="nav-item nav-link">Sunscreen Safety</a>
+          <a href="{% url 'sunscreen_safety' %}" class="nav-item nav-link">Sun Safety</a>
           <a href="{% url 'uv_impact' %}" class="nav-item nav-link">UV Impact</a>
       </nav>
         <!-- Navbar End -->
@@ -96,7 +98,40 @@
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <a href="mission_1.html"><img class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/Mission-1.png' %}" alt=""></a>
+
+                                <img id="trigger-image-1" onclick= showPopup class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/Mission-1.png' %}">
+                                <!-- Popup container -->
+                                <div id="popup-placehold-1" class="popup-placecard-container">
+                                    <span id="placecard-close-btn-1" onclick= hidePopup>&times;</span>
+                                    <h2>Our Mission</h2>
+                                    <ul>
+                                        <li>Protect your loved ones from the dangers of UV radiation with Sun Savvy's expert tips for skin cancer prevention. Educate yourself and those around you to reduce the risk of skin cancer</li>
+                                        <li>Knowledge is a powerful tool in preventing skin cancer. Arm yourself with the latest sun safety information from Sun Savvy and help save lives through education and awareness.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <script>
+                                    // Function to show the popup
+                                    function showPopup() {
+                                        var popup = document.getElementById('popup-placehold-1');
+                                        popup.style.display = 'block'; // Set display to block
+
+                                    }
+                                
+                                    // Function to hide the popup
+                                    function hidePopup() {
+                                        var popup = document.getElementById('popup-placehold-1');
+                                        popup.style.display = 'none';
+                                    }
+                                
+                                    // Event listener for the image trigger
+                                    document.getElementById('trigger-image-1').addEventListener('click', showPopup);
+                                
+                                    // Event listener for the close button
+                                    document.getElementById('placecard-close-btn-1').addEventListener('click', hidePopup);
+                                </script>
+                                
                             </div>
                         </div>
                     </div>
@@ -112,7 +147,38 @@
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/Mission-5.png' %}" alt="">
+                                <img id="trigger-image-2" onclick= showPopup class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/Mission-5.png' %}">
+                                <!-- Popup container -->
+                                <div id="popup-placehold-2" class="popup-placecard-container">
+                                    <span id="placecard-close-btn-2" onclick= hidePopup>&times;</span>
+                                    <h2>Fun Fact</h2>
+                                    <ul>
+                                        <li>Did you know that wearing UV-protective clothing and accessories can shield your skin from harmful rays? Explore Sun Savvy's stylish solutions for sun protection, because being safe doesn't mean sacrificing style!
+                                        </li>
+                                        <li>Did you know that applying UV-protective film to your windows can block up to 99% of harmful UV rays?</li>
+                                    </ul>
+                                </div>
+
+                                <script>
+                                    // Function to show the popup
+                                    function showPopup() {
+                                        var popup = document.getElementById('popup-placehold-2');
+                                        popup.style.display = 'block'; // Set display to block
+
+                                    }
+                                
+                                    // Function to hide the popup
+                                    function hidePopup() {
+                                        var popup = document.getElementById('popup-placehold-2');
+                                        popup.style.display = 'none';
+                                    }
+                                
+                                    // Event listener for the image trigger
+                                    document.getElementById('trigger-image-2').addEventListener('click', showPopup);
+                                
+                                    // Event listener for the close button
+                                    document.getElementById('placecard-close-btn-2').addEventListener('click', hidePopup);
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -142,7 +208,37 @@
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <img class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/Mission-4.png' %}" alt="">
+                                <img id="trigger-image-3" onclick= showPopup class="img-fluid w-75 rounded-circle bg-light p-3" src="{% static 'img/Mission-4.png' %}">
+                                <!-- Popup container -->
+                                <div id="popup-placehold-3" class="popup-placecard-container">
+                                    <span id="placecard-close-btn-3" onclick= hidePopup>&times;</span>
+                                    <h2>Fun Fact</h2>
+                                    <ul>
+                                        <li>Did you know that even on cloudy days, harmful UV rays can penetrate through? Stay sun savvy and protect your home with our expert tips!
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <script>
+                                    // Function to show the popup
+                                    function showPopup() {
+                                        var popup = document.getElementById('popup-placehold-3');
+                                        popup.style.display = 'block'; // Set display to block
+
+                                    }
+                                
+                                    // Function to hide the popup
+                                    function hidePopup() {
+                                        var popup = document.getElementById('popup-placehold-3');
+                                        popup.style.display = 'none';
+                                    }
+                                
+                                    // Event listener for the image trigger
+                                    document.getElementById('trigger-image-3').addEventListener('click', showPopup);
+                                
+                                    // Event listener for the close button
+                                    document.getElementById('placecard-close-btn-3').addEventListener('click', hidePopup);
+                                </script>
                             </div>
                         </div>
                     </div>

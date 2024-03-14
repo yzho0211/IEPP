@@ -1,0 +1,160 @@
+#popup-placehold-1 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#trigger-image-1 {
+    cursor: pointer;
+}
+
+#placecard-close-btn-1 {
+    cursor: pointer;
+}
+
+#popup-placehold-2 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#trigger-image-2 {
+    cursor: pointer;
+}
+
+#placecard-close-btn-2 {
+    cursor: pointer;
+}
+
+#popup-placehold-3 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#trigger-image-3 {
+    cursor: pointer;
+}
+
+#placecard-close-btn-3 {
+    cursor: pointer;
+}
+
+
+#popup-uv-placehold-1 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#uv-index {
+    cursor: pointer;
+}
+
+#placecard-uv-close-btn-1 {
+    cursor: pointer;
+}
+
+#popup-uv-placehold-2 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#place-card {
+    cursor: pointer;
+}
+
+#placecard-uv-close-btn-2 {
+    cursor: pointer;
+}
+
+#popup-uv-placehold-3 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#uv-index {
+    cursor: pointer;
+}
+
+#placecard-uv-close-btn-3 {
+    cursor: pointer;
+}
+
+#popup-uv-placehold-4 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#uv-index {
+    cursor: pointer;
+}
+
+#placecard-uv-close-btn-4 {
+    cursor: pointer;
+}
+
+#popup-uv-placehold-5 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+}
+
+#uv-index {
+    cursor: pointer;
+}
+
+#placecard-uv-close-btn-5 {
+    cursor: pointer;
+}

@@ -49,18 +49,12 @@ def login_view(request):
 @login_required 
 def home(request):
     if request.method == 'POST':
-        # Check if the user is authenticated
-        # if not request.session.get('authenticated'):
-        #     return redirect('login')  # Redirect to login page if not authenticated
-
         # Retrieve latitude and longitude from POST request
         latitude = request.POST.get('latitude')
         longitude = request.POST.get('longitude')
-        print(latitude, longitude)
         # Store latitude and longitude in session
         request.session['latitude'] = latitude
         request.session['longitude'] = longitude
-        print(latitude, longitude)
 
         # Redirect to the home page to avoid duplicate form submissions
         return redirect('home')
@@ -68,34 +62,6 @@ def home(request):
     # If it's a GET request, render the home page template
     return render(request, 'home.html')
 
-# def home(request):
-#     if request.method == 'POST':
-#         # Retrieve latitude and longitude from POST request
-        
-#         latitude = request.POST.get('latitude')
-#         longitude = request.POST.get('longitude')
-#         # context = {"Latitude": latitude, "Longitude": longitude}
-#         # Example: Print latitude and longitude
-#         print("Latitude:", latitude)
-#         print("Longitude:", longitude)
-
-#         request.session['latitude'] = latitude
-#         request.session['longitude'] = longitude
-#     return render(request, 'home.html')
-    
-
-
-# def cloth_style(request):
-#     latitude = request.session.get('latitude')
-#     longitude = request.session.get('longitude')
-
-#     data = get_data(latitude, longitude)
-#     # hourly data
-#     hourly_data = data['hourly']
-#     uv_indices = [hour['uvi'] for hour in hourly_data[:24]]
-#     uv_index = max(uv_indices)
-
-#     return render(request, 'cloth_style.html', {"uv_index": uv_index})
 
 @login_required
 def sunscreen_safety(request):
@@ -114,7 +80,6 @@ def sunscreen_safety(request):
 def uv_impact(request):
     latitude = request.session.get('latitude')
     longitude = request.session.get('longitude')
-
 
     data = get_data(latitude, longitude)
     # hourly data

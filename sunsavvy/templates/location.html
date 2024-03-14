@@ -15,7 +15,7 @@
         <div class="button-container">
             <button id="popup-button">Get Location</button>
         </div>
-        <form id="location-form" method="POST" action="/">
+        <form id="location-form" method="POST" action="/home/">
             {% csrf_token %}
             <input type="hidden" id="latitude" name="latitude" value="">
             <input type="hidden" id="longitude" name="longitude" value="">

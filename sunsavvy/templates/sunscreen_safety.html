@@ -30,6 +30,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/placecard.css' %}">
+
 
     <style>
         .place-card {
@@ -76,7 +78,7 @@
             </div>
           <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
           {% comment %} <a href="{% url 'cloth_style' %}" class="nav-item nav-link active">Style Safety</a> {% endcomment %}
-          <a href="{% url 'sunscreen_safety' %}" class="nav-item nav-link">Sunscreen Safety</a>
+          <a href="{% url 'sunscreen_safety' %}" class="nav-item nav-link">Sun Safety</a>
           <a href="{% url 'uv_impact' %}" class="nav-item nav-link">UV Impact</a>
       </nav>
         <!-- Navbar End -->
@@ -104,13 +106,116 @@
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="place-card">
                             <div class="place-card-header">Today's max UV index</div>
-                            <div class="place-card-number"> {{ uv_index }}</div>
+                            <div class="place-card-number" id= "uv-index"> {{ uv_index }}</div>
+
+                            <div id="popup-uv-placehold-1" class="popup-placecard-container">
+                                <span id="placecard-uv-close-btn-1" onclick= hidePopup>&times;</span>
+                                <h2>Low risk</h2>
+                                <ul>
+                                    <li>Low risk, but even low UV levels can damage skin over time.</li>
+                                    <li>Minimal amount recommended, emphasizing coverage of exposed area.
+                                    </li>
+                                    <li>Light and breathable clothing</li>
+                                </ul>
+                            </div>
+
+                            <div id="popup-uv-placehold-2" class="popup-placecard-container">
+                                <span id="placecard-uv-close-btn-2" onclick= hidePopup>&times;</span>
+                                <h2>Moderate risk</h2>
+                                <ul>
+                                    <li>Moderate risk, caution needed, especially midday. Can cause sunburn and increase skin cancer risk.</li>
+                                    <li>Emphasize coverage of exposed area. A generous amount of sunscreen recommended.
+                                    </li>
+                                    <li>Light and breathable clothing. wide-brimmed hats, sunglasses recommended.</li>
+                                </ul>
+                            </div>
+
+                            <div id="popup-uv-placehold-3" class="popup-placecard-container">
+                                <span id="placecard-uv-close-btn-3" onclick= hidePopup>&times;</span>
+                                <h2>High risk</h2>
+                                <ul>
+                                    <li>High risk, increased sun protection necessary to prevent sunburn and skin damage.
+                                    </li>
+                                    <li>A generous amount of sunscreen recommended, with reminder to reapply every 4 hours.
+                                    </li>
+                                    <li>long sleeved shirts, wide-brimmed hats, sunglasses. Seek shade when possible.</li>
+                                </ul>
+                            </div>
+
+                            <div id="popup-uv-placehold-4" class="popup-placecard-container">
+                                <span id="placecard-uv-close-btn-4" onclick= hidePopup>&times;</span>
+                                <h2>Very high risk</h2>
+                                <ul>
+                                    <li>Very high risk, extreme caution needed to avoid severe sunburn and skin cancer.
+                                    </li>
+                                    <li>Maximum amount of sunscreen recommended with reapplication frequently with other protective measures.
+                                    </li>
+                                    <li>maximized skin coverage with UV resistant clothing, wide-brimmed hats, sunglasses. Avoid outdoors.</li>
+                                </ul>
+                            </div>
+
+                            <div id="popup-uv-placehold-5" class="popup-placecard-container">
+                                <span id="placecard-uv-close-btn-5" onclick= hidePopup>&times;</span>
+                                <h2>Extremely high risk</h2>
+                                <ul>
+                                    <li>Extremely high risk, limit outdoor activities, and use maximum sun protection.</li>
+                                    <li>Maximum amount recommended with reapplication frequently with other protective measures.
+                                    </li>
+                                    <li>Outdoor activities not recommended.</li>
+                                </ul>
+                            </div>
                             
                         </div>
                         {% comment %} <h1 class="mb-4">What to wear today?</h1>
                         <p><strong>Low UV index (0-2): </strong> Minimal amount recommended, emphasizing coverage of exposed area.</p>
                         <p class="mb-4"> <strong>Medium-High UV index (2-7): </strong> A generous amount recommended, with reminder to reapply every 4 hours.</p>
                         <p class="mb-4"> <strong>Very High UV index (8-11): </strong> Maximum amount recommended with reapplication frequently with other protective measures.</p> {% endcomment %}
+                        <script>
+                            function showPopup() {
+                                if ({{uv_index}} <= 2){
+                                    var popup = document.getElementById('popup-uv-placehold-1');
+                                    popup.style.display = 'block'; // Set display to block
+                                }
+                                else if ({{uv_index}} <= 5 &&  {{uv_index}} > 2) {
+                                    var popup = document.getElementById('popup-uv-placehold-2');
+                                    popup.style.display = 'block'; // Set display to block
+                                }
+                                else if ({{uv_index}} <= 7 &&  {{uv_index}} > 5) {
+                                    var popup = document.getElementById('popup-uv-placehold-3');
+                                    popup.style.display = 'block'; // Set display to block
+                                }
+                                else if ({{uv_index}} <= 10 &&  {{uv_index}} > 7) {
+                                    var popup = document.getElementById('popup-uv-placehold-4');
+                                    popup.style.display = 'block'; // Set display to block
+                                }
+                                else {
+                                    var popup = document.getElementById('popup-uv-placehold-5');
+                                    popup.style.display = 'block'; // Set display to block
+                                }
+
+                            }
+
+                            function hidePopup() {
+                                var popup = document.getElementById('popup-uv-placehold-1');
+                                popup.style.display = 'none';
+                                var popup = document.getElementById('popup-uv-placehold-2');
+                                popup.style.display = 'none';
+                                var popup = document.getElementById('popup-uv-placehold-3');
+                                popup.style.display = 'none';
+                                var popup = document.getElementById('popup-uv-placehold-4');
+                                popup.style.display = 'none';
+                                var popup = document.getElementById('popup-uv-placehold-5');
+                                popup.style.display = 'none';
+                            }
+
+                            document.getElementById('uv-index').addEventListener('click', showPopup);
+                            document.getElementById('placecard-uv-close-btn-1').addEventListener('click', hidePopup);
+                            document.getElementById('placecard-uv-close-btn-2').addEventListener('click', hidePopup);
+                            document.getElementById('placecard-uv-close-btn-3').addEventListener('click', hidePopup);
+                            document.getElementById('placecard-uv-close-btn-4').addEventListener('click', hidePopup);
+                            document.getElementById('placecard-uv-close-btn-5').addEventListener('click', hidePopup);
+
+                        </script>
                     </div>
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
