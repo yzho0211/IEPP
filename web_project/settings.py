@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-stft$*apqs)61nwrj!)v#wswbf=ue6v#_&y6!cf2ci1ljcz20('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['sunsavvvy.azurewebsites.net','20.36.106.99','127.0.0.1']
 #ALLOWED_HOSTS = ['127.0.0.1','20.36.106.99','sunsavvvy.azurewebsites.net']
@@ -121,7 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/collected_static/'
+STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
