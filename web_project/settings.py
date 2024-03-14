@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'sunsavvy'
 ]
 
-CSRF_TRUSTED_ORIGINS = 'https://sunsavvvy.azurewebsites.net/'
 
+CSRF_TRUSTED_ORIGINS = [ 'https://sunsavvvy.azurewebsites.net', ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
