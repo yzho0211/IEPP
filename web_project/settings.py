@@ -139,3 +139,18 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+DEFAULT_FILE_STORAGE = 'web_project.azure_storage.AzureMediaStorage'
+STATICFILES_STORAGE = 'web_project.azure_storage.AzureStaticStorage'
+
+AZURE_ACCOUNT_NAME = os.getenv('storage444ie')
+AZURE_ACCOUNT_KEY = os.getenv('5SG8H2Yc9hfL9FcAYsGb+nJzVZ5zsy7Zl4dkCVI3gCYQGI6jBwf1r+oyiXcdE6QePjoS89mzi4bR+AStI7BXmw==')
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.web_project.windows.net'
+
+STATIC_URL = f'https://sunsavvvy.azurewebsites.net/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = f'https://sunsavvvy.azurewebsites.net/media/'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
