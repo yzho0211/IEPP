@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-stft$*apqs)61nwrj!)v#wswbf=ue6v#_&y6!cf2ci1ljcz20('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','20.36.106.99','sunsavvvy.azurewebsites.net']
 
@@ -46,9 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sunsavvy'
 ]
-
-
-CSRF_TRUSTED_ORIGINS = [ 'https://sunsavvvy.azurewebsites.net','https://sunsavvvy.azurewebsites.net/home' ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,20 +139,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# core/settings.py
-
-DEFAULT_FILE_STORAGE = 'web_project.azure_storage.AzureMediaStorage'
-STATICFILES_STORAGE = 'web_project.azure_storage.AzureStaticStorage'
-
-AZURE_ACCOUNT_NAME = os.getenv('storage444ie')
-AZURE_ACCOUNT_KEY = os.getenv('5SG8H2Yc9hfL9FcAYsGb+nJzVZ5zsy7Zl4dkCVI3gCYQGI6jBwf1r+oyiXcdE6QePjoS89mzi4bR+AStI7BXmw==')
-AZURE_CUSTOM_DOMAIN = f'storage444ie.blob.web_project.windows.net'
-
-STATIC_URL = f'https://sunsavvvy.azurewebsites.net/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-MEDIA_URL = f'https://sunsavvvy.azurewebsites.net/media/'
-MEDIA_ROOT = BASE_DIR / 'mediafiles'
-
